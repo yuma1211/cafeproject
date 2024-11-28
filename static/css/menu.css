@@ -1,0 +1,415 @@
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    width: 100%;
+}
+
+
+.search-input:focus {
+    border-bottom: 2px solid rgb(111, 118, 113);
+    z-index: 1000;
+    /* フォーカス時の下線の色 */
+}
+
+
+
+
+/* ボタンのスタイル調整 */
+.search-button:focus {
+    outline: none;
+    /* ボタンのフォーカス時の枠線を削除 */
+}
+
+
+.navbar {
+    width: 1030px;
+    margin-left: 160px;
+    margin-right: 76;
+    margin-top: 40px;
+    display: flex;
+    position: sticky;
+    z-index: 0;
+    background-color: whitesmoke;
+    overflow: hidden;
+}
+
+.navbar a {
+    flex: 1;
+    padding: 14px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: green;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: rgb(87, 84, 84);
+}
+
+.sidebar {
+    background-color: rgb(111, 118, 113);
+    width: 140px;
+    height: 100%;
+    /* height: calc(800vh - 50px); */
+    top: 39px;
+    position: fixed;
+    overflow: hidden;
+    margin-bottom: 30px;
+    z-index: 1;
+
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: whitesmoke;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 8px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: whitesmoke;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #ddd;
+    color: rgb(87, 84, 84);
+}
+
+.toggle-btn {
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+    color: black;
+}
+
+.menu {
+    font-family: 'Noto Sans JP', sans-serif;
+    margin-left: 150px;
+    /* サイドバーの幅と一致させる */
+    flex: 1;
+    padding: 25px;
+    color: whitesmoke;
+    background-color: cadetblue;
+    height: 1080px;
+    top: 10px;
+    bottom: 0;
+    /* position: fixed; */
+    /* overflow: hidden; */
+    margin-left: 160px;
+    margin-top: 10px;
+    width: 980px;
+    padding-top: 20px;
+
+
+}
+
+.footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer hr {
+    border: 0;
+    height: 1px;
+    background: #444;
+    margin: 10px 0;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+/*メニュー表示画面のフォントを'Noto Sans JPに*/
+.record {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 100;
+}
+
+
+
+
+form {
+    display: flex;
+    /* 横並びに配置 */
+    align-items: center;
+    /* 垂直方向を中央揃え */
+    justify-content: flex-start;
+    /* 左揃え */
+    position: fixed;
+    /* 固定配置 */
+    top: 10px;
+    /* 上からの距離 */
+    left: 910px;
+    /* 左からの距離 */
+    width: 10px;
+    /* 全幅を占有 */
+    z-index: 1000;
+    /* 前面に表示 */
+    background-color: transparent;
+}
+
+.search-input {
+    flex: 1;
+    /* 入力欄がスペースを占有 */
+    max-width: 250px;
+    /* 最大幅を制限 */
+    height: 30px;
+    margin-right: 0px;
+    /* ボタンとの間隔 */
+    border: none;
+    border-bottom: 3px double cadetblue;
+    /* background: white; */
+    font-size: 16px;
+    outline: none;
+    padding: 5px 0;
+}
+
+.search-button {
+    background-color: white;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    width: 30px;
+
+}
+
+.search-button i {
+    font-size: 18px;
+    color: cadetblue;
+}
+
+.search-button:hover i {
+    color: rgb(111, 118, 113);
+    /* ホバー時の色 */
+}
+
+/*メニュー表示画面のフォントを'Noto Sans JPに*/
+.record {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 100;
+    color: black;
+}
+
+.back-button {
+    background-color: #006747;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+
+}
+
+/* <a>タグのスタイルを調整 */
+.back-button a {
+    color: white;
+    /* ボタン内のリンク文字色 */
+    text-decoration: none;
+    /* 下線を消す */
+    display: block;
+}
+
+/* 画像配置、画像の調整*/
+.menu-grid {
+    display: grid;
+    /* グリッドレイアウトを使用 */
+    grid-template-columns: repeat(3, 1fr);
+    /* 横に3列 */
+    grid-gap: 20px;
+    /* 各アイテム間の隙間 */
+    margin: 20px auto;
+    /* 中央揃え */
+    max-width: 1200px;
+    /* 全体の最大幅 */
+}
+
+.record {
+    text-align: center;
+    /* 中央揃え */
+    border: 1px solid #ddd;
+    /* 枠線 */
+    border-radius: 8px;
+    /* 角丸 */
+    padding: 10px;
+    background-color: #f9f9f9;
+    /* 背景色 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* 軽い影 */
+    transition: transform 0.2s ease;
+    /* ホバー時のアニメーション */
+}
+
+.record img {
+    max-width: 100%;
+    /* 画像を要素の幅に合わせる */
+    height: auto;
+    /* アスペクト比を維持 */
+    border-radius: 4px;
+}
+
+.record:hover {
+    transform: scale(1.05);
+    /* ホバー時に拡大 */
+}
+
+@media screen and (max-width: 768px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 画面幅が狭い場合は2列 */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .menu-grid {
+        grid-template-columns: 1fr;
+        /* スマホでは1列 */
+    }
+}
+
+
+
+/* フォームのスタイル */
+.search-form {
+    width: 300px;
+    margin-bottom: 10px;
+    position: fixed;
+    display: flex;
+    overflow: hidden;
+}
+
+/* 入力欄のスタイル */
+.search-input {
+    flex: 1;
+    /* 入力欄が残りのスペースを埋める */
+    max-width: 200px;
+    /* 最大幅を調整 */
+    height: 30px;
+    /* 高さを調整 */
+    /* padding: 5px 10px; */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* margin-right: 10px; */
+    /* 入力欄とボタンの間隔 */
+}
+
+/* ボタンのスタイル */
+.search-button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #000;
+    /* padding: 8px 20px; */
+    /* ボタンを小さくするためにパディング調整 */
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    writing-mode: horizontal-tb;
+    border-radius: 4px;
+    width: 50px;
+    /* 横幅を大きくする */
+    height: 30px;
+    /* 高さを調整 */
+    display: inline-block;
+}
+
+/* ボタンのホバー時のスタイル */
+.search-button:hover {
+    background-color: #f1f1f1;
+}
+
+/* ボタンのフォーカス時のスタイル */
+.search-button:focus {
+    outline: none;
+    border-color: #888;
+}
+
+/*追加*/
+.hidden {
+    display: none;
+}
+
+.order-summary {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    transition: top 0.5s ease;
+    /* スライドアニメーション */
+}
+
+.order-summary.visible {
+    top: 0;
+}
+
+.order-summary h2 {
+    margin-bottom: 10px;
+}
+
+#order-items {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+#order-items li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#order-total {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#close-summary {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#close-summary:hover {
+    background-color: #d32f2f;
+}
+
+button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}

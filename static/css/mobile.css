@@ -1,0 +1,291 @@
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+ 
+.navbar {
+    display: flex;
+    background-color: whitesmoke;
+    justify-content: space-around; /* 均等配置 */
+    border-bottom: 1px solid #ddd;
+    position: fixed; /* ナビゲーションバーを固定 */
+    top: 0;
+    left: 0;
+    width: 100%; /* 全幅を確保 */
+    z-index: 1000; /* 他の要素の上に表示 */
+}
+ 
+.navbar a {
+    flex: 1;
+    padding: 14px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: green;
+    transition: background-color 0.3s, color 0.3s;
+}
+ 
+.navbar a:hover {
+    background-color: #ddd;
+    color: rgb(87, 84, 84);
+}
+ 
+.sidebar {
+    background-color: rgb(111, 118, 113);
+    width: 200px;
+    position: fixed;
+    top: 50px; /* ナビゲーションバーの高さ分だけ下に配置 */
+    left: 0;
+    height: calc(100% - 50px); /* ナビゲーションバーを除いた高さ */
+    overflow-y: auto;
+    padding-top: 20px;
+    z-index: 999; /* ナビゲーションバーの次に高いレイヤー */
+}
+ 
+.sidebar h2 {
+    text-align: center;
+    color: whitesmoke;
+    margin-bottom: 20px;
+}
+ 
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+ 
+.sidebar ul li {
+    padding: 8px;
+    text-align: center;
+}
+ 
+.sidebar ul li a {
+    text-decoration: none;
+    color: whitesmoke;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+ 
+.sidebar ul li a:hover {
+    background-color: #ddd;
+    color: rgb(87, 84, 84);
+}
+ 
+.menu {
+    margin-left: 220px; /* サイドバーの幅に合わせる */
+    margin-top: 70px; /* ナビゲーションバーの高さ分調整 */
+    padding: 25px;
+    background-color: cadetblue;
+    min-height: calc(100vh - 70px); /* コンテンツの最小高さを調整 */
+    color: whitesmoke;
+}
+ 
+img {
+    max-width: 55%;
+    position: relative;
+    left: -240px;
+}
+ 
+#mobile-order, #step {
+    padding: 120px;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    text-align: center;
+}
+ 
+#mobile-order {
+    background-color: rgba(252, 72, 72, 0.553);
+    position: relative;
+    left: 80px; /* 親要素に対して右に50px移動 */
+    top: 100px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), /* 底部に大きめの影 */
+    0 6px 6px rgba(0, 0, 0, 0.22);  /* 周囲に小さめの影 */
+    height: 370px;
+}
+#step {
+    background-color: rgba(119, 230, 224, 0.553);
+    position: relative;
+    left: 80px; /* 親要素に対して右に50px移動 */
+    top: -450px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), /* 底部に大きめの影 */
+    0 6px 6px rgba(0, 0, 0, 0.22);  /* 周囲に小さめの影 */
+}
+ 
+ 
+.footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+ 
+.footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+ 
+.footer a:hover {
+    text-decoration: underline;
+}
+ 
+.footer hr {
+    border: 0;
+    height: 1px;
+    background: #444;
+    margin: 10px 0;
+}
+ 
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+ 
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+    }
+ 
+    .menu {
+        margin-left: 0;
+        margin-top: 50px;
+        padding: 15px;
+    }
+ 
+    #mobile-order, #step {
+        padding: 20px;
+    }
+ 
+    .footer {
+        font-size: 0.8rem;
+    }
+}
+#new-image-section, #new-image-section1, #new-image-section2 {
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+ 
+#new-image-section img,
+#new-image-section1 img,
+#new-image-section2 img {
+    max-width: 27%;
+    position: relative;
+    left: 290px;
+    top: 200px;
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), /* 底部に大きめの影 */
+    0 6px 6px rgba(0, 0, 0, 0.22);  /* 周囲に小さめの影 */
+    border-radius: 15px;
+   
+}
+/* 画像セクション全体の余白を削除 */
+.section {
+    margin: 0; /* セクション間の外側の余白を削除 */
+    padding: 0; /* セクション内の内側の余白を削除 */
+}
+ 
+/* 画像間の調整 */
+.section img {
+    display: block;
+    margin: 0 auto; /* 中央揃えで上下の余白をなくす */
+}
+#step h1 {
+    position: relative;
+    left: -250px; /* 親要素に対して左に移動 */
+    top: -20px;
+}
+#new-image-section3 img {
+    max-width: 30%;
+    position: relative;
+    left: 322px;  /* 三つ目の画像を右に移動 */
+    top: -216px;
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), /* 底部に大きめの影 */
+    0 6px 6px rgba(0, 0, 0, 0.22);  /* 周囲に小さめの影 */
+    border-radius: 15px;
+}
+#mobile-order h3 {
+    text-align: left; /* テキストを左揃え */
+    margin-left: -77px; /* 必要に応じて調整 */
+    margin-top: 40px;
+    position: relative;
+    top: 100px;
+    font-size: 27px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.27);
+}
+#mobile-order h1 {
+    font-size: 24px; /* フォントサイズを小さく調整 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0); /* 影の設定 */
+    padding: 10px 300px; /* 横幅を短くするために左右の余白を小さく設定 */
+    border-radius: 15px; /* 丸い枠の角を設定 */
+    border: 2px solid #006747; /* 枠の色（緑） */
+    background-color: #fff; /* 背景色を白に設定 */
+    color: #006747; /* テキスト色を緑に設定 */
+    display: inline-block; /* 横に並べるためにインラインブロックに設定 */
+    margin: 20px auto; /* 上下の余白を調整、中央に配置 */
+    margin-top: -25px;
+}
+#mobile-order-pay h3 {
+    font-size: 24px; /* フォントサイズ */
+    padding: 15px 30px; /* 横幅と縦幅に余白を加える */
+    border-radius: 30px; /* 丸い枠にするための設定 */
+    border: 2px solid #006747; /* 枠の色（緑） */
+    background-color: #fff; /* 背景色を白に設定 */
+    color: #006747; /* テキスト色を緑に設定 */
+    display: inline-block; /* インラインブロックで表示 */
+    font-weight: bold; /* フォントの太さ */
+    position: relative; /* 相対位置に設定 */
+    margin-top: -340px; /* 上に移動（負の値で上方向へ移動） */
+    margin-left: 500px; /* 右に移動（正の値で右方向へ移動） */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* 変化をスムーズに */
+}
+ 
+#mobile-order-pay h3:hover {
+    box-shadow: 0 0 15px rgba(0, 103, 71, 0.6); /* 光る効果 */
+    transform: scale(1.05); /* 少し拡大する効果 */
+}
+ 
+#coment {
+    position: fixed; /* 固定表示 */
+    bottom: 0; /* ページの下部に配置 */
+    left: 20px; /* 20px 右に移動 */
+    width: calc(100% - 40px); /* 横幅を少し狭めて、左右に余白を持たせる */
+    background-color: #006747; /* 背景色 */
+    color: #fff; /* テキスト色を白に */
+    padding: 15px 20px; /* 上下左右に余白を設定 */
+    text-align: center; /* テキストを中央に配置 */
+    font-size: 14px; /* フォントサイズ */
+    z-index: 1000; /* 他の要素よりも前に表示 */
+}
+ 
+#coment {
+    position: fixed; /* 固定表示 */
+    bottom: 0; /* ページの下部に配置 */
+    left: 200px; /* サイドバーの幅 (200px) を考慮して右に配置 */
+    right: 0; /* 右端にぴったりくっつける */
+    width: calc(100% - 200px); /* サイドバーの幅を差し引いた残りの横幅 */
+    background-color: #006747; /* 背景色 */
+    color: #fff; /* テキスト色を白に */
+    padding: 10px 20px; /* 上下の余白を少し減らして文字が切れないように調整 */
+    text-align: center; /* テキストを中央に配置 */
+    font-size: 14px; /* フォントサイズ */
+    z-index: 1000; /* 他の要素よりも前に表示 */
+    box-sizing: border-box; /* paddingを含めた全体の幅を設定 */
+}
+ 
+#coment h1 {
+    margin: 0; /* マージンを削除してセクション内にぴったり配置 */
+    font-size: 12px; /* フォントサイズを小さめに */
+    line-height: 1.5; /* 行間を少し開けて読みやすく */
+}
+ 
+#coment h1 span {
+    font-weight: bold; /* 重要な部分を太字に */
+}

@@ -1,0 +1,76 @@
+{% load static %} 
+
+<head>
+    <meta charset="UTF-8">
+    <title>モバイルオーダー</title>
+    <link rel="stylesheet" href="{% static 'css/mobile.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+  </head>
+   
+  <!-- ボディ -->
+  <body>
+    <!-- ナビゲーションバー -->
+    <div class="navbar">
+      <a href="{% url 'cafe:base' %}">Home</a>
+      <a href="{% url 'cafe:menu' %}">Menu</a>
+      <a href="{% url 'cafe:map' %}">Map</a>
+      <a href="{% url 'photo:index' %}">Review</a>
+      <a href="{% url 'cafe:mobile' %}">Mobile Order</a>
+    </div>
+    
+   
+    <!-- サイドバー -->
+    <div class="sidebar">
+        <button id="toggleBtn" class="toggle-btn">☰</button>
+        <h2>Category</h2>
+        <ul>
+          <li><a href="{% url 'cafe:coffee' %}">coffee</a></li>
+          <li><a href="{% url 'cafe:oleato' %}">oleato</a></li>
+          <li><a href="{% url 'cafe:espresso' %}">espresso</a></li>
+          <li><a href="{% url 'cafe:frappuccino' %}">frappuccino</a></li>
+          <li><a href="{% url 'cafe:tea' %}">tea</a></li>
+          <li><a href="{% url 'cafe:others' %}">others</a></li>
+        </ul>
+    </div>
+   
+    <!-- モバイルオーダーセクション -->
+    <section id="mobile-order" class="section">
+      <h1>使い方</h1>
+      <h3>スマートフォンやPCから</h3><h3>簡単に事前注文・決済ができます。</h3><h3>商品は指定した店舗で受け取るだけ。</h3>
+      </section>
+      <!-- 新しい画像セクション3 -->
+  <section id="new-image-section3" class="section">
+    <img src="{% static 'img/tyuumon.jpg' %}" alt="新しい画像3" class="img-fluid">
+  </section>
+   
+      <!-- 一つ目の新しい画像セクション -->
+  <section id="new-image-section1" class="section">
+   
+    <img src="{% static 'img/モバイルオーダー.png' %}" alt="新しいイメージ1" class="img-fluid">
+  </section>
+   
+  <!-- 二つ目の新しい画像セクション -->
+  <section id="new-image-section2" class="section">
+    <img src="{% static 'img/モバイルオーダー２.jpeg' %}" alt="イメージ画像" class="img-fluid">
+  </section>
+   
+    <section id="step" class="section">
+      <h1>3つのステップ</h1>
+      <img src="{% static 'img/step.png' %}" alt="モバイルオーダーのイメージ" class="img-fluid">
+     
+    </section>
+    <section id="mobile-order-pay" class="section">
+      <a href="{% url 'cafe:mobile_order' %}">
+        <h3>Mobile Order & Payで注文する</h3>
+      </a>
+    </section>
+   
+  <section id="coment" class="section">
+    <h1>※店舗の営業時間とモバイルオーダーの注文受付時間は異なります。受付状況は公式モバイルアプリよりご確認いただけます。店内
+      利用を選択の場合、ドライブスルーレーンでの受取はできません、店内でお受取ください。</h1>
+   
+  </body>
+   
+  <!-- Bootstrap JSのリンク -->
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  </html>

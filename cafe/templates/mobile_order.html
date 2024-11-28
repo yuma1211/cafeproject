@@ -1,0 +1,192 @@
+{% load static %}
+<meta name="csrf-token" content="{{ csrf_token }}">
+<!--ヘッダー-->
+<head>
+    <meta charset="UTF-8">
+    <title>モバイルオーダー｜商品を選択</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"> <!-- Bootstrap CSSのリンク -->
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">  <!-- Noto Sans JPのリンク -->
+</head>
+<!--ナビゲーションバー-->
+<div class="navbar">
+  <a href="{% url 'cafe:base' %}">Home</a>
+  <a href="{% url 'cafe:menu' %}">Menu</a>
+  <a href="{% url 'cafe:map' %}">Map</a>
+  <a href="{% url 'photo:index' %}">Review</a>
+  <a href="{% url 'cafe:mobile' %}">Mobile Order</a>
+
+</div>
+<!--サイドバー-->
+<div class="sidebar">
+  <button id="toggleBtn" class="toggle-btn">☰</button>
+  <h2>Category</h2>
+  <ul>
+      <li><a href="{% url 'cafe:coffee_m' %}">coffee</a></li>
+      <li><a href="{% url 'cafe:oleato_m' %}">oleato</a></li>
+      <li><a href="{% url 'cafe:espresso_m' %}">espresso</a></li>
+      <li><a href="{% url 'cafe:frappuccino_m' %}">frappuccino</a></li>
+      <li><a href="{% url 'cafe:tea_m' %}">tea</a></li>
+      <li><a href="{% url 'cafe:others_m' %}">others</a></li>
+  </ul>
+</div>
+<!--ボディー-->
+<body>
+  <div class="menu" style="background-image: url('{% static "img/wood.jpeg" %}'); opacity:0.8;">
+    <h1 style="text-shadow: 3px 3px 1px rgba(0, 0, 0, 1);">商品を選択</h1>
+    <div class="menu-grid">
+      {% for record in orderby_records %}
+          <div class="record">
+            <img src="{{ record.image.url }}" alt="{{ record.name }}">
+            <h3>{{ record.name }}</h3>
+            <p>値段: {{ record.price }}円</p>
+            <div style="text-align: right;">
+              <button class="add-to-cart" data-id="{{ record.id }}" data-name="{{ record.name }}" data-price="{{ record.price }}">カートに追加</button>
+            </div>
+          </div>
+      {% endfor %}
+        </div>
+      <div style="text-align: right;">
+      <button class="back-button">
+        <a>注文を確認する</a>
+      </button>
+      <button  type="submit" class="back-button" id="complete-order" disabled>
+        注文を完了する
+      </button>
+      </div>
+    </div>
+  </div>
+  <div id="order-summary" class="order-summary hidden">
+    <h2>注文内容</h2>
+    <ul id="order-items">
+      <!-- カートの中身がここに表示されます -->
+    </ul>
+    <p id="order-total">合計: 0円</p>
+    <button id="close-summary">閉じる</button>
+  </div>
+  {% include "pagination.html" %}
+</body>
+<!-- Bootstrap JSのリンク -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script>
+  let selected_items = [];
+ 
+  // 各「カートに追加」ボタンにイベントリスナーを設定
+  document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', function () {
+          const productId = this.dataset.id;
+          const productName = this.dataset.name;
+          const productPrice = parseFloat(this.dataset.price);
+ 
+          // カート内に同じ商品が存在するか確認
+          const existingItem = selected_items.find(item => item.id === productId);
+ 
+          if (existingItem) {
+              // 商品が既にカートに存在する場合、数量を増やす
+              existingItem.quantity += 1;
+          } else {
+              // 商品がカートに存在しない場合、新たに追加
+              selected_items.push({
+                  id: productId,
+                  name: productName,
+                  price: productPrice,
+                  quantity: 1
+              });
+          }
+ 
+          // カート状態を更新
+          updateCompleteOrderButton();
+ 
+          // コンソールでカート内容を確認（デバッグ用）
+          console.log('カートの中身:', selected_items);
+ 
+          // ユーザーに通知
+          alert(`${productName} をカートに追加しました！`);
+      });
+  });
+ 
+  // 注文確認セクションの要素を取得
+  const orderSummaryElement = document.getElementById('order-summary');
+  const orderItemsElement = document.getElementById('order-items');
+  const orderTotalElement = document.getElementById('order-total');
+ 
+  // 注文確認ボタンを押したときの処理
+  document.querySelector('.back-button').addEventListener('click', function (event) {
+      event.preventDefault(); // デフォルトのリンク動作を防止
+ 
+      // 注文内容を表示するセクションを更新
+      orderItemsElement.innerHTML = ''; // 初期化
+      let total = 0;
+ 
+      selected_items.forEach(item => {
+          total += item.price * item.quantity;
+ 
+          const listItem = document.createElement('li');
+          listItem.textContent = `${item.name}  ${item.price}円 × ${item.quantity}`;
+          orderItemsElement.appendChild(listItem);
+      });
+ 
+      orderTotalElement.textContent = `合計: ${total}円`;
+ 
+      // セクションを表示
+      orderSummaryElement.classList.add('visible');
+      orderSummaryElement.classList.remove('hidden');
+  });
+ 
+  // 「閉じる」ボタンを押したときの処理
+  document.getElementById('close-summary').addEventListener('click', function () {
+      // セクションを非表示
+      orderSummaryElement.classList.remove('visible');
+      orderSummaryElement.classList.add('hidden');
+  });
+ 
+  // 「注文を完了する」ボタンの要素を取得
+  const completeOrderButton = document.getElementById('complete-order');
+ 
+  // カートの状態をチェックしてボタンを有効化/無効化する関数
+  function updateCompleteOrderButton() {
+      if (selected_items.length > 0) {
+          completeOrderButton.disabled = false; // カートに商品がある場合、ボタンを有効化
+      } else {
+          completeOrderButton.disabled = true; // カートが空の場合、ボタンを無効化
+      }
+  }
+ 
+  // 初期状態でボタンを無効化
+  updateCompleteOrderButton();
+ 
+  // 「注文を完了する」ボタンのクリックイベントリスナー
+  completeOrderButton.addEventListener('click', function () {
+    if (!completeOrderButton.disabled) {
+        // Ajaxリクエストでサーバーに注文情報を送信
+        fetch("{% url 'cafe:mobile_tyumon' %}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+            body: JSON.stringify({
+                items: selected_items // カート内の商品データ
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                // サーバーが正常に注文を受け取ったら、注文完了ページへリダイレクト
+                window.location.href = "{% url 'cafe:mobile_tyumon' %}";
+            } else {
+                // エラーが発生した場合、アラートを表示
+                alert("注文を完了できませんでした。再試行してください。");
+            }
+        })
+        .catch(error => {
+            console.error("注文送信エラー:", error);
+            alert("サーバーへの接続でエラーが発生しました。");
+        });
+    } else {
+        // ボタンが無効な場合の処理
+        alert('カートに商品がありません！');
+    }
+  });
+</script>
+ 
+</html>

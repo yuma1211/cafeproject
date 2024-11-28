@@ -1,0 +1,106 @@
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #006747;
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.menu-details {
+    flex: 1;
+}
+
+.menu-details h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.menu-details p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.menu-price {
+    font-weight: bold;
+    color: #006747;
+    font-size: 16px;
+}
+
+.order-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.order-summary {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.order-button {
+    background-color: #006747;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.order-button:hover {
+    background-color: #004d3a;
+}
+
+/* <a>タグのスタイルを調整 */
+.order-button a {
+    color: white;
+    /* ボタン内のリンク文字色 */
+    text-decoration: none;
+    /* 下線を消す */
+    display: block;
+}
+
+.instructions {
+    text-align: center
+}

@@ -1,0 +1,44 @@
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 50px;
+}
+
+.order-complete {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.order-complete p {
+    font-size: 18px;
+    color: #006747;
+}
+
+.order-complete .order-number {
+    font-size: 22px;
+    color: #004d3a;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.back-button {
+    margin-top: 20px;
+}
+
+.back-button a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #006747;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.back-button a:hover {
+    background-color: #004d3a;
+}

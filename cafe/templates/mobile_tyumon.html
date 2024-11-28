@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>モバイルオーダー｜注文完了</title>
+    <link rel="stylesheet" href="{% static 'css/mobile_tyumon.css' %}">
+</head>
+<body>
+    <div class="order-complete">
+        <h3>注文が完了しました。</h3>
+        <h4>注文受付時間:{{ current_date }}|{{ current_time }}</h4>
+        <p class="order-number">注文番号: {{ order_number }} </p>
+        <p>注文番号は受け取りの際にお伝えください。</p>
+            <div class="back-button">
+                <a href="{% url 'cafe:menu' %}">メニューに戻る</a>
+            </div>
+    </div>
+</body>
+</html>
+<!--注文が完了したらこのページへ-->

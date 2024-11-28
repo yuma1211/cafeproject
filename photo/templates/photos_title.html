@@ -1,0 +1,30 @@
+{% load static %}
+  <section class="py-5 text-center container" style="background-image: url('{% static "img/木2.jpg" %}'); width: 2000px; opacity:0.8;">
+   
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">商品レビュー</h1>
+        <p class="lead text-muted" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+          みんなの感想や意見をたくさん投稿してください！
+      </p>
+     
+        <p>
+          {% if user.is_authenticated %}
+          <div class="d-flex justify-content-center">
+            <a href="{% url 'photo:post' %}" class="btn btn-success me-2">投稿する</a>
+            <form action="{% url 'accounts:logout' %}" method="post" style="display:inline;">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-secondary">ログアウト</button>
+            </form>
+          </div>
+          {% else %}
+ 
+          <a href="{% url 'accounts:signup' %}"
+             class="btn btn-success my-2">新規登録</a>
+          <a href="{% url 'accounts:login' %}"
+             class="btn btn-secondary my-2">登録済みの方はログイン</a>
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </section>

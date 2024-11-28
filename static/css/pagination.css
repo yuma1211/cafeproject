@@ -1,0 +1,46 @@
+.pagination {
+    display: flex;
+    justify-content: center; /* 水平方向に中央揃え */
+    align-items: center; /* 垂直方向に中央揃え */
+    list-style: none; /* デフォルトのリストスタイルを削除 */
+    padding: 0;
+    margin: 20px 0; /* 上下に間隔を追加 */
+}
+
+.pagination .page-item {
+    margin: 0 5px; /* 各アイテムの間隔 */
+}
+
+.pagination .page-link {
+    display: inline-block;
+    padding: 10px 15px; /* 内側の余白 */
+    color: #006747; /* ブルーカラー */
+    text-decoration: none; /* 下線を削除 */
+    border: 1px solid #ddd; /* 枠線 */
+    border-radius: 5px; /* 角丸 */
+    transition: all 0.3s ease; /* アニメーションを追加 */
+    background-color: #f9f9f9; /* 背景色 */
+}
+
+.pagination .page-link:hover {
+    background-color: #006747; /* ホバー時の背景色 */
+    color: white; /* ホバー時の文字色 */
+    border-color: #006747; /* ホバー時の枠線色 */
+}
+
+.pagination .active .page-link {
+    background-color: #006747; /* アクティブページの背景色 */
+    color: white; /* アクティブページの文字色 */
+    border-color: #006747; /* アクティブページの枠線色 */
+    cursor: default; /* ポインタの変更 */
+}
+
+.pagination .page-item:first-child .page-link,
+.pagination .page-item:last-child .page-link {
+    font-weight: bold; /* 特殊なアイコンに太字を適用 */
+}
+
+.pagination .page-link[aria-label="Previous"],
+.pagination .page-link[aria-label="Next"] {
+    font-size: 1.2em; /* 前後ボタンを少し大きく */
+}

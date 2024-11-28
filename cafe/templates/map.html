@@ -1,0 +1,59 @@
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <title>マップ</title>
+ 
+  <link rel="stylesheet" href="{% static 'css/map.css' %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">  <!-- Noto Sans JPのリンク -->
+</head>
+
+<!--ナビゲーションバー-->
+<div class="navbar">
+  <a href="{% url 'cafe:base' %}">Home</a>
+  <a href="{% url 'cafe:menu' %}">Menu</a>
+  <a href="{% url 'cafe:map' %}">Map</a>
+  <a href="{% url 'photo:index' %}">Review</a>
+  <a href="{% url 'cafe:mobile' %}">Mobile Order</a>
+</div>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12850.46520440439!2d140.46943114158645!3d36.370071857961015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x602225068853aa2b%3A0x1dfe333a50717175!2z5rC05oi45oOF5aCxSVTjgq_jg6rjgqjjgqTjgr_jg7zlsILploDlrabmoKEg4oC7MjAyNOW5tDTmnIgg5aSn5Y6f5Yy755mC44Ob44OG44Or6Kaz5YWJ5bCC6ZaA5a2m5qCh5rC05oi45qCh44KI44KK5qCh5ZCN5aSJ5pu0!5e0!3m2!1sja!2sjp!4v1732072068010!5m2!1sja!2sjp" width="900" height="700" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+<div class="layout-side-inner">
+  <div class="component-sidenav"></div>
+</div>
+
+<main>
+  <p style="color: white; background-color:gray; width: 350; text-align: center; margin-left: 450px;">名称</p>
+  <p style="color: black; background-color:white; width: 350; text-align: center; margin-left: 450px;">大原カフェ</p>
+  <p style="color: white; background-color:gray; width: 350; text-align: center; margin-left: 450px;">所在地</p>
+  <p style="color: black; background-color:white; width: 350; text-align: center; margin-left: 450px;">〒310-0015 茨城県水戸市宮町１丁目９−１８</p>
+  <h3 style="color: red; background-color:white; margin-top: 50; width: 350; text-align: center; margin-left: 450px;">お車でお越しのお客様</h3>
+  <p style="margin-top: 10; width: 700; text-align: center; margin-left: 280px;">駐車場の台数には限りがございます。皆様にはご迷惑をおかけします。<br>
+  公共交通機関でのご来場にご理解、ご協力のほどよろしくお願い申し上げます。<br>
+  カフェ周辺の商業施設・公共施設・私有地などへの無断駐車は絶対におやめください。<br>
+  カフェ駐車場はすべて無料となっております。自転車、バイクの駐輪場もございます。</p>
+  <img src="{% static 'img/駐車場の写真.jpg' %}" alt="駐車場 パーキング イラストイラスト.jpg" width="300" height="200" style="margin-top: 30; margin-left: 470;" >  
+  <p style="color: white; background-color:gray; width: 350; text-align: center; margin-left: 450px;">利用可能台数</p>
+  <p style="color: black; background-color:white; width: 350; text-align: center; margin-left: 450px;">6台</p>
+  <p style="color: white; background-color:gray; width: 350; text-align: center; margin-left: 450px;">利用料金</p>
+  <p style="color: black; background-color:white; width: 350; text-align: center; margin-left: 450px;">無料</p>
+  <h3 style="color: black; background-color:white; margin-top: 50; width: 650; text-align: center;">駐車場(〒310-0801 茨城県水戸市桜川１丁目１−６)</h3>
+  <img src="{% static 'img/駐車場2.jpg' %}" alt="駐車場2" width="300" height="200" style="margin-top: 80; margin-left: 150;" >
+  <p style="color: white; background-color:gray;  margin-top: 50;width: 350; text-align: center; margin-left: 600px; margin-top: -200px;">利用可能台数</p>
+  <p style="color: black; background-color:white; width: 350; text-align: center; margin-left: 600px;">6台</p>
+  <p style="color: white; background-color:gray; width: 350; text-align: center; margin-left: 600px;">利用料金</p>
+  <p style="color: black; background-color:white; width: 350; text-align: center; margin-left: 600px;">無料</p>
+  <p style="color: white; background-color:gray; width: 350; text-align: center; margin-left: 600px;">カフェまでの所要時間</p>
+  <p style="color: black; background-color:white; width: 350; text-align: center; margin-left: 600px;">徒歩 5分</p>
+  <h3 style="color: red; background-color:white; margin-top: 50; width: 350; text-align: center; margin-left: 450px;">電車でお越しのお客様</h3>
+  <h3 style="color: black; width: 200; text-align: center; margin-left: 250px; margin-top: 0px; padding-top: 50px;">水戸駅で降車</h3>
+  <p style="color: blue; width: 200; text-align: center; margin-left: 260px; margin-top: 0px;">上野東京ライン、常磐線、水郡線、鹿島臨海鉄道</p>
+  <img src="{% static 'img/駅の写真.jpg' %}" alt="駐車場2" width="300" height="200" style=" width: 350; text-align: center; margin-left: 600px; margin-top: -150px;">
+  <p style=" width: 350; text-align: center; margin-left: 460px;">皆様のご来店を心よりお持ちしております。</p>
+</main>
+
+
+
+
+
+

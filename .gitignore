@@ -1,1 +1,22 @@
+# Django
+*.pyc
+__pycache__/
 local_settings.py
+.venv/
+
+# Environment variables
+.env
+
+# Database
+db.sqlite3
+
+# Media files
+/media/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS-specific
+.DS_Store
+Thumbs.db
